@@ -68,7 +68,10 @@ For configuration options, examples and more, [please check out the homepage doc
 
 ## Security Notice 🔒
 
-Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. Thus, we recommend homepage be deployed behind a reverse proxy including authentication, SSL etc, and / or behind a VPN.
+Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system). To keep your information private, if Homepage is reachable from any untrusted network, it:
+
+1. **must** sit behind a reverse proxy (and/or VPN) that enforces authentication, TLS, and strictly validates Host headers. OR
+2. An optional built-in OIDC login flow is available (opt-in) to gate the app without a reverse proxy; it is a simple “authenticated or not” guard (no per-user roles or personalization).
 
 ## With Docker
 
